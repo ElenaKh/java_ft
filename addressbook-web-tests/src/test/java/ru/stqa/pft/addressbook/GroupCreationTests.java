@@ -1,5 +1,8 @@
 package ru.stqa.pft.addressbook;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -14,7 +17,14 @@ public class GroupCreationTests {
     
     @BeforeMethod
     public void setUp() throws Exception {
+        String browser = BrowserType.FIREFOX;
+        if (browser == BrowserType.FIREFOX){
         wd = new FirefoxDriver();
+        } else if (browser == BrowserType.CHROME){
+            wd = new ChromeDriver();
+        } else if (browser == BrowserType.IE){
+            wd = new InternetExplorerDriver();
+        }
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         login("admin", "secret");
