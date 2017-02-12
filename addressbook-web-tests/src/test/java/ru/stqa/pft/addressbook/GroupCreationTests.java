@@ -13,11 +13,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 
 public class GroupCreationTests {
-    FirefoxDriver wd;
+    WebDriver wd;
     
     @BeforeMethod
     public void setUp() throws Exception {
-        String browser = BrowserType.FIREFOX;
+        String browser = BrowserType.CHROME;
         if (browser == BrowserType.FIREFOX){
         wd = new FirefoxDriver();
         } else if (browser == BrowserType.CHROME){
